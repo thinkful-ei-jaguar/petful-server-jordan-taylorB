@@ -7,16 +7,29 @@ const People = require('../people/people.service')
 const router = express.Router()
 
 router
+  .route('/cats')
+  .get((req, res) => {
+    const results = Pets.getCats()
+    return res.json(results)
+  })
+
+router
+  .route('/dogs')
+  .get((req, res) => {
+    const results = Pets.getDogs()
+    return res.json(results)
+  })
+
+router
   .route('/cat')
   .get((req, res) => {
   // Return all cats currently up for adoption.
-    const results = Pets.getCats()
+    const results = Pets.getFirstCat()
   
     if(results === null) {
       res.send('There are no cats available at this time')
     }
 
-    console.log(results[0]);
     return res.json(results[0])
   })
 
@@ -24,7 +37,7 @@ router
   .route('/dog')
   .get((req, res) => {
   // Return all dogs currently up for adoption.
-    const results = Pets.getDogs()
+    const results = Pets.getFirstDog()
 
     if(results === null) {
       res.send('There are no cats available at this time')

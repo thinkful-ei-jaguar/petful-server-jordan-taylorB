@@ -16,6 +16,14 @@ store.dogs.forEach(dog => pets.dogs.enqueue(dog))
 
 module.exports = {
   getCats() {
+    const cats = pets.cats.all()
+    return cats
+  },
+  getDogs() {
+    const dogs = pets.dogs.all()
+    return dogs
+  },
+  getFirstCat() {
     // Return the pets next in line to be adopted.
     const currentCats = pets.cats.show()
     
@@ -25,7 +33,7 @@ module.exports = {
     return currentCats
   },
 
-  getDogs() {
+  getFirstDog() {
     const currentDogs = pets.dogs.show()
     if(!currentDogs[0]) {
       return null
