@@ -45,20 +45,23 @@ class Queue {
 
   show() {
     // Return the next item in the queue.
+    const responseArr = []
     if(!this.first === null) {
       return null
     }
-
-    return this.first.value
+    responseArr.push(this.first.value)
+    return responseArr
   }
 
   all() {
     // Return all items in the queue.
     let node = this.first
+    let responseArr = []
     while(node) {
-      console.log(node.value)
+      responseArr.push(node.value)
       node = node.next
     }
+    return responseArr
   }
 }
 

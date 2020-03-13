@@ -1,5 +1,5 @@
 const Queue = require('../queue/Queue')
-const store = require('../../store')
+const store = require('../store')
 
 // Set up initial data.
 // --------------------
@@ -15,8 +15,22 @@ store.dogs.forEach(dog => pets.dogs.enqueue(dog))
 // --------------------
 
 module.exports = {
-  get() {
+  getCats() {
     // Return the pets next in line to be adopted.
+    const currentCats = pets.cats.show()
+    
+    if(!currentCats[0]) {
+      return null
+    }
+    return currentCats
+  },
+
+  getDogs() {
+    const currentDogs = pets.dogs.show()
+    if(!currentDogs[0]) {
+      return null
+    }
+    return currentDogs
   },
 
   dequeue(type) {
