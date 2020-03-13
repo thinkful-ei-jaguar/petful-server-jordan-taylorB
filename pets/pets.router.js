@@ -46,8 +46,22 @@ router
     res.json(results[0])
   })
 
-router.delete('/', bodyParser, (req, res) => {
-  // Remove a pet from adoption.
-})
+router
+  .route('/cat/adopt')
+  .get((req, res) => {
+  // Remove a cat from adoption....but put him back at the end of the line
+    const cat = Pets.dequeueCat()
+    Pets.pets.cats.enqueue(cat)
+    res.json(cat)
+  })
+
+  router
+  .route('/dog/adopt')
+  .get((req, res) => {
+  // Remove a dog from adoption....but put him back at the end of the line
+    const dog = Pets.dequeueDog()
+    Pets.pets.dogs.enqueue(dog)
+    res.json(dog)
+  })
 
 module.exports = router
