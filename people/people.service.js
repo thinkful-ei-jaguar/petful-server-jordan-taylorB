@@ -12,13 +12,18 @@ store.people.forEach(person => people.enqueue(person))
 module.exports = {
   get() {
     // Return all people in the queue.
+    const peopleList = people.all()
+    return peopleList
   },
 
   enqueue(person) {
     // Add a person to the queue.
+    const newPerson = people.enqueue(person)
+    return newPerson
   },
 
   dequeue() {
-    // Remove a person from the queue.
+    const adopter = people.dequeue()
+    return adopter
   }
 }

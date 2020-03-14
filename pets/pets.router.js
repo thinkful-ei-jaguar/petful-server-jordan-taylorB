@@ -49,19 +49,41 @@ router
 router
   .route('/cat/adopt')
   .get((req, res) => {
-  // Remove a cat from adoption....but put him back at the end of the line
+  // Remove a cat from adoption....but put them back at the end of the line
+  // Also dequeue person in front who adopted them..and requeues
+
     const cat = Pets.dequeueCat()
     Pets.pets.cats.enqueue(cat)
-    res.json(cat)
+
+    const person = People.dequeue()
+    People.enqueue(person)
+
+    const results = {
+      adoptee: cat,
+      human: person
+    }
+
+    res.json(results)
   })
 
   router
   .route('/dog/adopt')
   .get((req, res) => {
-  // Remove a dog from adoption....but put him back at the end of the line
+    // Remove a dog from adoption....but put them back at the end of the line
+    //Also dequeque the person in front who adopted them, requeues
+
     const dog = Pets.dequeueDog()
     Pets.pets.dogs.enqueue(dog)
-    res.json(dog)
+
+    const person = People.dequeue()
+    People.enqueue(person)
+
+    const response = {
+      adoptee: dog,
+      human: person
+    }
+
+    res.json(response)
   })
 
 module.exports = router
