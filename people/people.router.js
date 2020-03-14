@@ -7,7 +7,7 @@ const router = express.Router()
 
 router.get('/', (req, res) => {
   // Return all the people currently in the queue.
-  
+
   const results = People.get()
 
   res.json(results)
@@ -18,7 +18,7 @@ router.post('/', json, (req, res) => {
 
   const {name} = req.body
 
-  People.enqueue(name)
+  const personResponse = People.enqueue(name)
 
   res.sendStatus(204)
 })
