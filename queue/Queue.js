@@ -64,19 +64,27 @@ class Queue {
     return responseArr;
   }
 
+  findLast() {
+    let node = this.first
+    while(node.next != null){
+      node = node.next
+    }
+    return node.value
+  }
+
   position(value) {
     //start at the head
-    let currNode = this.head;
+    let currNode = this.first;
     let countPosition = 1;
     //if the list is empty
-    if (!this.head){
+    if (!this.first){
       return null;
     }
     while(currNode.value !== value) {
       //return null if end of the list 
       // and the item is not on the list
-      if (currNode.next === null) {
-        return null;
+      if (this.first.next === null) {
+        return countPosition;
       }
       else {
         //keep looking 

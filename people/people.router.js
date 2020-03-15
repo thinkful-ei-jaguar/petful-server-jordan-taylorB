@@ -11,6 +11,12 @@ router.get('/', (req, res) => {
   res.json(results);
 });
 
+router.get('/user', (req, res) => {
+  const result = People.getNewPerson()
+  
+  res.json(result)
+})
+
 router.post('/', json, (req, res) => {
   // Add a new person to the queue.
   const {name} = req.body
@@ -21,8 +27,9 @@ router.post('/', json, (req, res) => {
 })
 
 
-router.get('/position', (req, res) => {
-  const {name} = req.body;
+router.get('/:name', (req, res) => {
+  const {name} = req.params
+  console.log(name)
   const positionOfPerson = People.getPosition(name);
   console.log(positionOfPerson, 'position of person');
   res.json(positionOfPerson);
