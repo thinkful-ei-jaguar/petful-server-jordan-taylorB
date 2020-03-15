@@ -18,7 +18,7 @@ router.post('/', json, (req, res) => {
 
   const {name} = req.body
 
-  const personResponse = People.enqueue(name)
+  People.enqueue(name)
 
   res.sendStatus(204)
 })
