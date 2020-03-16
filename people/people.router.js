@@ -15,14 +15,14 @@ router.post('/', json, (req, res) => {
   // Add a new person to the queue.
   const {name} = req.body;
   const personResponse = People.enqueue(name);
-  res.status(204).json(personResponse);
+  res.json(personResponse);
 });
 
 router.get('/position', (req, res) => {
-  const {name} = req.body;
-  const positionOfPerson = People.getPosition(name);
-  console.log(positionOfPerson, 'position of person');
-  res.json(positionOfPerson);
+  console.log(req.body, 'req body at poisiton endpoint');
+  // const positionOfPerson = People.getPosition(name);
+  // console.log(positionOfPerson, 'position of person');
+  // res.json(positionOfPerson);
 });
 
 module.exports = router;

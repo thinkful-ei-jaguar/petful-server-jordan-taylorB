@@ -13,14 +13,13 @@ module.exports = {
   get() {
     // Return all people in the queue.
     const peopleList = people.all();
-    console.log(peopleList, 'people list');
-    // return peopleList;
+    // console.log(peopleList, 'people list');
+    return peopleList;
   },
 
   enqueue(person) {
     // Add a person to the queue.
     const newPerson = people.enqueue(person);
-    console.log(newPerson, 'response after enqueue');
     return newPerson.value;
   },
 
