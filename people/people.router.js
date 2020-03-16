@@ -11,18 +11,28 @@ router.get('/', (req, res) => {
   res.json(results);
 });
 
+router.get('/user', (req, res) => {
+  const result = People.getNewPerson()
+  res.json(result)
+})
+
 router.post('/', json, (req, res) => {
   // Add a new person to the queue.
-  const {name} = req.body;
-  const personResponse = People.enqueue(name);
-  res.json(personResponse);
-});
+  const {name} = req.body
 
-router.get('/position', (req, res) => {
-  console.log(req.body, 'req body at poisiton endpoint');
-  // const positionOfPerson = People.getPosition(name);
-  // console.log(positionOfPerson, 'position of person');
-  // res.json(positionOfPerson);
+  People.enqueue(name)
+
+  res.sendStatus(204)
+})
+
+
+router.get('/:name', (req, res) => {
+  const {name} = req.params
+  console.log(name)
+  const positionOfPerson = People.getPosition(name);
+  console.log(positionOfPerson, 'position of person');
+  res.json(positionOfPerson);
 });
 
 module.exports = router;
+

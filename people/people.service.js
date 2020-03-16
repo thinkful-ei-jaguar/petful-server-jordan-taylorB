@@ -13,7 +13,6 @@ module.exports = {
   get() {
     // Return all people in the queue.
     const peopleList = people.all();
-    // console.log(peopleList, 'people list');
     return peopleList;
   },
 
@@ -28,8 +27,15 @@ module.exports = {
     return adopter;
   },
 
+  getNewPerson() {
+    const lastPerson = people.findLast()
+
+    return lastPerson
+  },
+
   getPosition(person) {
     const position = people.position(person);
+    console.log(position)
     return position;
   }
 };
