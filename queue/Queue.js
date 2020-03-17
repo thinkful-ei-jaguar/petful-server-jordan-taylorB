@@ -64,9 +64,9 @@ class Queue {
     return responseArr;
   }
 
-  findLast() {
+  findValue(value) {
     let node = this.first
-    while(node.next != null){
+    while(node.value != value){
       node = node.next
     }
     return node.value

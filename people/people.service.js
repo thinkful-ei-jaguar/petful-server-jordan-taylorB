@@ -27,10 +27,10 @@ module.exports = {
     return adopter;
   },
 
-  getNewPerson() {
-    const lastPerson = people.findLast()
+  getPerson() {
+    const currentPerson = people.findValue()
 
-    return lastPerson
+    return currentPerson
   },
 
   getPosition(person) {

@@ -28,10 +28,16 @@ router.post('/', json, (req, res) => {
 
 router.get('/:name', (req, res) => {
   const {name} = req.params
-  console.log(name)
+
+  const person = name
   const positionOfPerson = People.getPosition(name);
-  console.log(positionOfPerson, 'position of person');
-  res.json(positionOfPerson);
+
+  const result = {
+        name: person,
+        position: positionOfPerson
+  }
+
+  res.json(result);
 });
 
 module.exports = router;
