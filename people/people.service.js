@@ -28,14 +28,13 @@ module.exports = {
   },
 
   getPerson() {
-    const currentPerson = people.findValue()
-
-    return currentPerson
+    const currentPerson = people.findValue();
+    return currentPerson;
   },
 
   getPosition(person) {
     const position = people.position(person);
-    console.log(position)
+    console.log(position);
     return position;
   }
 };
