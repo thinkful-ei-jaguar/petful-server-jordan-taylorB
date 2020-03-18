@@ -53,10 +53,10 @@ router
   // Also dequeue person in front who adopted them..and requeues
 
     const cat = Pets.dequeueCat();
-    Pets.pets.cats.enqueue(cat);
+    // Pets.pets.cats.enqueue(cat);
 
     const person = People.dequeue();
-    People.enqueue(person);
+    // People.enqueue(person);
 
     const results = {
       adoptee: cat,
