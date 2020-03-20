@@ -1,5 +1,5 @@
 const app = require('./app/app');
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 8001;
 
 app.listen(port, () => {
   console.log(`[petful-server] Listening on ${ port }...`);
