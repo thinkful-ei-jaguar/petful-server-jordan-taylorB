@@ -22,16 +22,16 @@ Response: Array of people
 
 #### `/` POST 
 Request: newPerson object
-  Ex: newPerson: {
+  Ex: `newPerson: {
     name: 'Person name'
-  }
+  }`
 
 #### `/:name` GET
 Response: Object containing the person name and position in line 
-  Ex: {
+  Ex: `{
     name: person, 
     position: positionOfPerson
-  }
+  }`
 
 ----
 
@@ -39,7 +39,7 @@ Response: Object containing the person name and position in line
 
 #### `/cats` or `/dogs` GET
 Response: Array of all cats or dogs objects
-  Ex: dogs: [
+  Ex: `dogs: [
     ...
     {
       age: 1,
@@ -51,12 +51,12 @@ Response: Array of all cats or dogs objects
       story: 'Abandonded as puppy'
     },
     ...
-  ]
+  ]`
 
 #### `/cat` or `/dog` GET
 Response: Object of the first cat or dog in line
   Ex:  
-    {
+    `{
       age: 2,
       breed: 'Bengal',
       description: 'Orange bengal cat with black stripes lounging on concrete.',
@@ -64,14 +64,14 @@ Response: Object of the first cat or dog in line
       imageURL:'https://images.pexels.com/photos/104827/cat-pet-animal-domestic-104827.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500', 
       name: 'Steve French',
       story: 'Thrown on the street'
-    },
+    }`
 
 #### `/cat/adopt` or `/dog/adopt` GET 
 Response: Object containing the cat or dog adopted and the human name who adopted them 
-  Ex: {
+  Ex: `{
     adoptee: cat,
     human: person
-  }
+  }`
   - This endpoint dequeues the cat or dog 
   - This endpoint dequeues the human that just clicked 'Adopt'
 
