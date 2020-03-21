@@ -14,11 +14,11 @@
 
 #### `/` GET
 Response: Array of people
-  Ex: people: [
+  Ex: `people: [
     'Person 1',
     'Person2',
     'Person 3'
-  ]
+  ]`
 
 #### `/` POST 
 Request: newPerson object
