@@ -76,7 +76,7 @@ router
     Pets.pets.dogs.enqueue(dog);
 
     const person = People.dequeue();
-    People.enqueue(person);
+    // People.enqueue(person);
 
     const response = {
       adoptee: dog,
