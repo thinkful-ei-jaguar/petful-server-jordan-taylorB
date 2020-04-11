@@ -1,3 +1,4 @@
+/* eslint-disable strict */
 const express = require('express');
 const bodyParser = require('body-parser').json();
 
@@ -50,7 +51,7 @@ router
   .route('/cat/adopt')
   .get((req, res) => {
   // Remove a cat from adoption....but put them back at the end of the line
-  // Also dequeue person in front who adopted them..and requeues
+  // Also dequeue the first person in front who adopted them
 
     const cat = Pets.dequeueCat();
     Pets.pets.cats.enqueue(cat);
